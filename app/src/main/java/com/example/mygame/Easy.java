@@ -35,7 +35,12 @@ public class Easy extends ChooseTheStage {
         timerTextView = findViewById(R.id.timerTextView); // Initialize timer TextView
 
         startTimer(); // Start the timer
-
+        if(!timerRunning){
+            Intent intent = new Intent(Easy.this, EasyScore.class);
+            intent.putExtra("SCORE", score);
+            startActivity(intent);
+            finish();
+        }
         word.setText(easy[0]);
         Button checkButton = findViewById(R.id.accept);
         checkButton.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +48,7 @@ public class Easy extends ChooseTheStage {
             public void onClick(View view) {
                 String userTypedWord = userInput.getText().toString().toLowerCase();
 
-               if (currentIndex >= easy.length-1|| timerRunning ) {
+               if (currentIndex >= easy.length-1) {
                     if (userTypedWord.equals(easyans[currentIndex])) {
                         score = score + 100 * mul;
                     }
@@ -113,6 +118,7 @@ public class Easy extends ChooseTheStage {
             countDownTimer.cancel(); // Cancel the timer to avoid memory leaks
         }
     }
+
 }
 
 

@@ -2,6 +2,7 @@ package com.example.mygame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,11 +28,20 @@ public class MainActivity extends AppCompatActivity {
             textView = findViewById(R.id.user_details);
             user = auth.getCurrentUser();
         Button start = findViewById(R.id.button2);
+        Button score = findViewById(R.id.highScore);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Create an Intent to start the second activity
                 Intent intent = new Intent(MainActivity.this, ChooseTheStage.class);
+                startActivity(intent);
+            }
+        });
+        score.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create an Intent to start the second activity
+                Intent intent = new Intent(MainActivity.this, HighScore.class);
                 startActivity(intent);
             }
         });

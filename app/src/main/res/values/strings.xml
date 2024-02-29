@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyGame</string>
+    <string name="login">Log IN</string>
+    <string name="Password">Password</string>
+</resources>

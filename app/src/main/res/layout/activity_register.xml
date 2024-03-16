@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="15dp"
-    android:background="@drawable/fon2"
+    android:background="@drawable/start_bacground"
     tools:context=".Register"
     >
     <TextView
@@ -47,6 +47,25 @@
         android:layout_height="wrap_content"/>
 
     <Button
+        android:id="@+id/sendCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Code" />
+    <EditText
+        android:id="@+id/verficationCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Write code here"
+        android:inputType="text"/>
+    <Button
+        android:id="@+id/verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify"
+        />
+
+    <Button
         android:id="@+id/btn_register"
         android:text="Register"
         android:layout_width="wrap_content"
@@ -61,4 +80,5 @@
         android:text="Click to Log In"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
 </LinearLayout>

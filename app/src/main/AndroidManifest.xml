@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -18,7 +17,7 @@
             android:name=".HighScore"
             android:exported="false" />
         <activity
-            android:name=".EasyScore"
+            android:name=".Score"
             android:exported="false" />
         <activity
             android:name=".Easy"

@@ -9,17 +9,19 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class HighScore extends Score {
-public int easyHighScore;
-public  int normalHighScore;
-public  int hardHighScore;
+    public int easyHighScore;
+    public int normalHighScore;
+    public int hardHighScore;
+    public int score;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
         Button back = findViewById(R.id.back);
-        TextView textView=findViewById(R.id.easyScore);
-        if(easyscore>easyHighScore){
-            easyHighScore=easyscore;
+        TextView textView = findViewById(R.id.easyScore);
+        if (easyscore > easyHighScore) {
+            easyHighScore = easyscore;
             textView.setText(String.valueOf(easyHighScore));
         }
         back.setOnClickListener(new View.OnClickListener() {

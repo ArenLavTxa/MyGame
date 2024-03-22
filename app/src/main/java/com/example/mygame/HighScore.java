@@ -19,10 +19,11 @@ public class HighScore extends Score {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
         Button back = findViewById(R.id.back);
-        TextView textView = findViewById(R.id.easyScore);
-        if (easyscore > easyHighScore) {
-            easyHighScore = easyscore;
-            textView.setText(String.valueOf(easyHighScore));
+        TextView high = findViewById(R.id.easyScore);
+        Intent intent = getIntent();
+       score= intent.getIntExtra("HIGHSCORE", easyscore);
+        if (score > easyHighScore) {
+            high.setText("Your highest score is: " + score);
         }
         back.setOnClickListener(new View.OnClickListener() {
             @Override

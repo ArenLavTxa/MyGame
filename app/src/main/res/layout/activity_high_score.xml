@@ -10,20 +10,13 @@
     tools:context=".HighScore">
 
     <TextView
+        android:id="@+id/easyScore"
         android:layout_marginTop="70dp"
         android:textSize="25dp"
-        android:id="@+id/easy"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Easy highest score in easy mod is" />
-
-    <TextView
-        android:id="@+id/easyScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="40dp" />
-
+        android:text="Highest" />
     <Button
         android:layout_marginTop="20dp"
         android:id="@+id/back"

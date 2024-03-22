@@ -21,8 +21,6 @@ public class Score extends ChooseTheStage {
             Intent intent = getIntent();
             score = intent.getIntExtra("SCORE", 0);
             over.setText("You got " + score);
-
-
         Button exit = findViewById(R.id.exit);
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,15 +28,15 @@ public class Score extends ChooseTheStage {
                     Intent intent = new Intent(Score.this, HighScore.class);
                     if(stage==1) {
                         easyscore=score;
-                        intent.putExtra("SCORE", easyscore);
+                        intent.putExtra("HIGHSCORE", easyscore);
                     }
                 if(stage==2) {
                     normalscore=score;
-                    intent.putExtra("SCORE", normalscore);
+                    intent.putExtra("HIGHSCORE", normalscore);
                 }
                 if(stage==3) {
                     hardscore=score;
-                    intent.putExtra("SCORE", hardscore);
+                    intent.putExtra("HIGHSCORE", hardscore);
                 }
                         startActivity(intent);
                         finish();

@@ -43,15 +43,11 @@ public class Easy extends ChooseTheStage {
         userInput = findViewById(R.id.userInput);
         timerTextView = findViewById(R.id.timerTextView);
         pictureOfWord = findViewById(R.id.wordPicture);
-        //shuffleArrays();
+        shuffleArrays();
 
         startTimer();
-//        word.setText(easy[0]);
-//        pictureOfWord.setImageResource(pictureResources[0]);
         Button checkButton = findViewById(R.id.accept);
 
-
-        //Arsen code
         answers.put("a_ack", R.drawable.attack);
         answers.put("c_rt", R.drawable.court);
         answers.put("scar_", R.drawable.scarce);
@@ -61,51 +57,45 @@ public class Easy extends ChooseTheStage {
         answers.put("ball_n", R.drawable.balloon);
         answers.put("sheri_", R.drawable.sheriff);
         answers.put("su_e_", R.drawable.success);
-        answers.put("ze_yr", R.drawable.zephyr);
+        answers.put("ze_yr", R.drawable.zephir);
 
         List<String> keySet = new ArrayList<>(answers.keySet());
-
         Random random = new Random();
         int randomAnswer = random.nextInt(answers.keySet().size());
-
         word.setText(keySet.get(randomAnswer));
-//        pictureOfWord.setImageResource(answers.get(keySet.get(randomAnswer)));
-
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userTypedWord = userInput.getText().toString().toLowerCase();
-                if (currentIndex >= easy.length - 1 || mistake == 2) {
-                    if (userTypedWord.equals(easyans[currentIndex])) {
+                    String userTypedWord = userInput.getText().toString().toLowerCase();
+                    if (currentIndex >= easy.length - 1 || mistake == 2) {
+                        if (userTypedWord.equals(easyans[currentIndex])) {
+                            score = score + 100 * mul;
+                        }
+                        Intent intent = new Intent(Easy.this, Score.class);
+                        intent.putExtra("SCORE", score);
+                        startActivity(intent);
+                        finish();
+                    } else if (userTypedWord.equals(easyans[currentIndex])) {
+                        currentIndex = (currentIndex + 1) % easy.length;
+                        word.setText(easy[currentIndex]);
                         score = score + 100 * mul;
+                        mul++;
+                        Toast.makeText(Easy.this, "Correct! Score: " + score, Toast.LENGTH_SHORT).show();
+                        userInput.setText("");
+                        String currentWord = easy[currentIndex];
+                        pictureOfWord.setImageResource(answers.get(currentWord));
+                    } else {
+                        currentIndex = (currentIndex + 1) % easy.length;
+                        word.setText(easy[currentIndex]);
+                        mul = 1;
+                        mistake++;
+                        Toast.makeText(Easy.this, "Incorrect!", Toast.LENGTH_SHORT).show();
+                        userInput.setText("");
+                        String currentWord = easy[currentIndex];
+                        pictureOfWord.setImageResource(answers.get(currentWord));
                     }
-                    Intent intent = new Intent(Easy.this, Score.class);
-                    intent.putExtra("SCORE", score);
-                    startActivity(intent);
-                    finish();
-                } else if (userTypedWord.equals(easyans[currentIndex])) {
-                    currentIndex = (currentIndex + 1) % easy.length;
-                    word.setText(easy[currentIndex]);
-                    score = score + 100 * mul;
-                    mul++;
-                    Toast.makeText(Easy.this, "Correct! Score: " + score, Toast.LENGTH_SHORT).show();
-                    userInput.setText("");
-                    String currentWord = easy[currentIndex];
-                    pictureOfWord.setImageResource(answers.get(currentWord));
-
-                    //Arseni code y
-                } else {
-                    currentIndex = (currentIndex + 1) % easy.length;
-                    word.setText(easy[currentIndex]);
-                    mul = 1;
-                    mistake++;
-                    Toast.makeText(Easy.this, "Incorrect!", Toast.LENGTH_SHORT).show();
-                    userInput.setText("");
-                    String currentWord = easy[currentIndex];
-                    pictureOfWord.setImageResource(answers.get(currentWord));
+                    i++;
                 }
-                i++;
-            }
         });
     }
 

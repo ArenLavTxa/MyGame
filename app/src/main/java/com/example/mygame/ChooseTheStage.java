@@ -31,8 +31,7 @@ public class ChooseTheStage extends AppCompatActivity {
         normal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Create an Intent to start the second activity
-                Intent intent = new Intent(ChooseTheStage.this, Easy.class );
+                Intent intent = new Intent(ChooseTheStage.this, Normal.class );
                 startActivity(intent);
                 stage=2;
             }
@@ -40,7 +39,6 @@ public class ChooseTheStage extends AppCompatActivity {
         hard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Create an Intent to start the second activity
                 Intent intent = new Intent(ChooseTheStage.this, Easy.class );
                 startActivity(intent);
                 stage=3;

@@ -16,7 +16,7 @@ public class Score extends ChooseTheStage {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_easy_score);
+        setContentView(R.layout.activity_score);
         TextView over = findViewById(R.id.score);
             Intent intent = getIntent();
             score = intent.getIntExtra("SCORE", 0);

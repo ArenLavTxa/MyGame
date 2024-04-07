@@ -20,8 +20,13 @@ import java.util.Map;
 import java.util.Random;
 
 public class Normal extends AppCompatActivity {
-    private String[] easy = {"a_ack", "c_rt", "scar_", "li_ht", "_night", "bro_oli", "ball_n", "sheri_", "su_e_", "ze_yr"};
-    private String[] easyans = {"attack", "court", "scarce", "light", "knight", "broccoli", "balloon", "sheriff", "success", "zephyr"};
+    private String[] easy = {"She received a bask_t full of fru_t for her birthday",
+    "The w_ther was gloomy, with thick cl_ds covering the sky",
+    "He stru_le to remember the correct spe_ings of difficult words",
+    "The c_irping of the b_rds woke her up early in the morning",
+            "She enjoyed the be_ty of the picturesq_ countryside during her road trip"
+    };
+    private String[] easyans = {"basket fruit", "weather clouds", "struggle spelling", "chirping bards", "beauty picturesque"};
     private Map<String, Integer> answers = new HashMap<>();
     private int currentIndex = 0;
     private TextView word;
@@ -33,7 +38,7 @@ public class Normal extends AppCompatActivity {
     private int mistake = 0;
     private TextView timerTextView;
     private CountDownTimer countDownTimer;
-    private long timeLeftInMillis = 92000;
+    private long timeLeftInMillis = 60000;
     private boolean timerRunning;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,10 @@ public class Normal extends AppCompatActivity {
         Button checkButton = findViewById(R.id.accept);
         shuffleArrays();
         startTimer();
+        Random random = new Random();
+        int randomIndex = random.nextInt(easy.length);
+        String firstWord = easy[randomIndex];
+        word.setText(firstWord);
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

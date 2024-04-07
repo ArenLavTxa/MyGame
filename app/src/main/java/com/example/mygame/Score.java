@@ -9,37 +9,26 @@ import android.widget.TextView;
 
 public class Score extends ChooseTheStage {
     public int score;
-   public int easyscore;
-    public int normalscore;
-    public int hardscore;
+    public int easyscore;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
+
         TextView over = findViewById(R.id.score);
-            Intent intent = getIntent();
-            score = intent.getIntExtra("SCORE", 0);
-            over.setText("You got " + score);
+        Intent intent = getIntent();
+        score = intent.getIntExtra("SCORE", easyscore);
+        over.setText("You got " + score);
         Button exit = findViewById(R.id.exit);
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                    easyscore = score;
                     Intent intent = new Intent(Score.this, HighScore.class);
-                    if(stage==1) {
-                        easyscore=score;
-                        intent.putExtra("HIGHSCORE", easyscore);
-                    }
-                if(stage==2) {
-                    normalscore=score;
-                    intent.putExtra("HIGHSCORE", normalscore);
-                }
-                if(stage==3) {
-                    hardscore=score;
-                    intent.putExtra("HIGHSCORE", hardscore);
-                }
-                        startActivity(intent);
-                        finish();
+                    intent.putExtra("HIGHSCORE", easyscore);
+                    startActivity(intent);
+                    finish();
             }
         });
     }

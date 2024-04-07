@@ -98,7 +98,6 @@ public class Register extends AppCompatActivity {
                                 } else {
                                     Toast.makeText(Register.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
-
                                 }
                             }});
             }

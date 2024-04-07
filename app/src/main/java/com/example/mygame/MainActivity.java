@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             textView = findViewById(R.id.user_details);
             user = auth.getCurrentUser();
         Button start = findViewById(R.id.button2);
+        Button info = findViewById(R.id.info);
         Button score = findViewById(R.id.highScore);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Create an Intent to start the second activity
                 Intent intent = new Intent(MainActivity.this, HighScore.class);
                 startActivity(intent);
             }
@@ -63,5 +63,12 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 }
             });
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, HowToPlay.class);
+                startActivity(intent);
+            }
+        });
         }
    }

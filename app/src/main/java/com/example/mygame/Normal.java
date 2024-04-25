@@ -38,7 +38,7 @@ public class Normal extends AppCompatActivity {
     private int mistake = 0;
     private TextView timerTextView;
     private CountDownTimer countDownTimer;
-    private long timeLeftInMillis = 60000;
+    private long timeLeftInMillis = 100000;
     private boolean timerRunning;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

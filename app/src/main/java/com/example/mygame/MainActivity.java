@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
             if (user == null) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
+//                Intent intent = new Intent(getApplicationContext(), Login.class);
+//                startActivity(intent);
+//                finish();
             } else {
                 textView.setText(user.getEmail());
             }

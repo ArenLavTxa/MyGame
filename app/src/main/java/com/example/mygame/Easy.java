@@ -23,7 +23,9 @@ public class Easy extends AppCompatActivity {
     private String[] easy = {"a_ack", "c_rt", "scar_", "li_ht", "_night", "bro_oli", "ball_n", "sheri_", "su_e_", "ze_yr"};
     private String[] easyans = {"attack", "court", "scarce", "light", "knight", "broccoli", "balloon", "sheriff", "success", "zephyr"};
     private Map<String, Integer> answers = new HashMap<>();
-    private int currentIndex = 0;
+    Random random = new Random();
+    int randomIndex = random.nextInt(easy.length);
+    private int currentIndex=randomIndex ;
     private TextView word;
     private EditText userInput;
     private ImageView pictureOfWord;
@@ -60,11 +62,11 @@ public class Easy extends AppCompatActivity {
         answers.put("ze_yr", R.drawable.zephir);
 
         List<String> keySet = new ArrayList<>(answers.keySet());
-        Random random = new Random();
-        int randomIndex = random.nextInt(easy.length);
         String firstWord = easy[randomIndex];
+        String currentWord = easyans[randomIndex];
         word.setText(firstWord);
         pictureOfWord.setImageResource(answers.get(firstWord));
+
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
